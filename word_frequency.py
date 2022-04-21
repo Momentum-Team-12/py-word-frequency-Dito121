@@ -1,5 +1,3 @@
-import string
-
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
@@ -14,7 +12,7 @@ def print_word_freq(file):
     with open(file, 'r', encoding='utf8') as f:
         lines = f.readlines()
         for line in lines:
-            line.translate(str.maketrans('', '', string.punctuation))
+            line.translate(str.maketrans('', '', '?!,.'))
             line = line.lower()
             words = line.split()
             for word in words:
