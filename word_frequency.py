@@ -12,7 +12,7 @@ def print_word_freq(file):
     with open(file, 'r', encoding='utf8') as f:
         lines = f.readlines()
         for line in lines:
-            line.translate(str.maketrans('', '', '?!,.'))
+            line = line.translate(str.maketrans('', '', '?!,.'))
             line = line.lower()
             words = line.split()
             for word in words:
