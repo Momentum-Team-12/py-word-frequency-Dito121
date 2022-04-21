@@ -1,3 +1,5 @@
+import string
+
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
@@ -22,9 +24,13 @@ def print_word_freq(file):
                         continue
                     result[word] += 1
 
-    keys = result.keys()
+    sorted_result = dict(
+        sorted(result.items(), key=lambda item: item[1], reverse=True))
+
+    keys = sorted_result.keys()
     for key in keys:
-        print(key + ' | ' + str(result[key]) + ' ' + '*'*result[key])
+        print(key + ' | ' +
+              str(sorted_result[key]) + ' ' + '*'*sorted_result[key])
 
 
 if __name__ == "__main__":
