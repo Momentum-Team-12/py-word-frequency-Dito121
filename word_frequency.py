@@ -22,21 +22,19 @@ def print_word_freq(file):
                         continue
                     result[word] += 1
 
-    sorted_result = dict(
-        sorted(result.items(), key=lambda item: item[1], reverse=True))
+
+    sorted_result = dict(sorted(result.items(), key=lambda item: item[1], reverse=True))
 
     keys = sorted_result.keys()
     for key in keys:
-        print(key + ' | ' +
-              str(sorted_result[key]) + ' ' + '*'*sorted_result[key])
+        print(f"{key:<15}" + ' | ' + str(sorted_result[key]) + ' ' + '*'*sorted_result[key])
 
 
 if __name__ == "__main__":
     import argparse
     from pathlib import Path
 
-    parser = argparse.ArgumentParser(
-        description='Get the word frequency in a text file.')
+    parser = argparse.ArgumentParser(description='Get the word frequency in a text file.')
     parser.add_argument('file', help='file to read')
     args = parser.parse_args()
 
